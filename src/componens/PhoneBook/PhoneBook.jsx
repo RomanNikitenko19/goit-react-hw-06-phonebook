@@ -13,7 +13,6 @@ const PhoneBook = () => {
   useEffect(() => {
     const phoneBook = localStorage.get(LOCALSTORAGE_KEY);
     if (phoneBook) {
-      console.log(phoneBook);
       dispatch(actions.getItems(phoneBook));
     }
   }, [dispatch]);
@@ -32,6 +31,7 @@ const PhoneBook = () => {
 };
 
 export default PhoneBook;
+
 ////////////////////////////////////////////////////////
 // import { nanoid } from "nanoid";
 // import { useState, useEffect } from "react";

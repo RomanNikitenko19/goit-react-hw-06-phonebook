@@ -1,8 +1,6 @@
 import { nanoid } from "nanoid";
-// import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/contacts/contactsAction";
-// import * as localStorage from "../../services/localStorage";
 import { useState } from "react";
 import MyButton from "../Button/MyButton";
 
@@ -11,8 +9,6 @@ const Form = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-
-  // const LOCALSTORAGE_KEY = "PhoneBook_contacts";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
