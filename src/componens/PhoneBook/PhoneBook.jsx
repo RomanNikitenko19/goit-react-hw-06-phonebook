@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import * as actions from "../../redux/contacts/contactsAction";
+import { getItems } from "../../redux/contacts/contactsSlice";
 import * as localStorage from "../../services/localStorage";
 import PhoneBookForm from "../../componens/PhoneBookForm";
 import Contacts from "../Contacts";
@@ -13,14 +13,13 @@ const PhoneBook = () => {
   useEffect(() => {
     const phoneBook = localStorage.get(LOCALSTORAGE_KEY);
     if (phoneBook) {
-      dispatch(actions.getItems(phoneBook));
+      dispatch(getItems(phoneBook));
     }
   }, [dispatch]);
 
   useEffect(() => {
     localStorage.save(LOCALSTORAGE_KEY, сontacts);
   }, [сontacts]);
-
 
   return (
     <>
@@ -31,6 +30,39 @@ const PhoneBook = () => {
 };
 
 export default PhoneBook;
+////////////////////////////////////////////////////////
+// import { useSelector, useDispatch } from "react-redux";
+// import { useEffect } from "react";
+// import * as actions from "../../redux/contacts/contactsAction";
+// import * as localStorage from "../../services/localStorage";
+// import PhoneBookForm from "../../componens/PhoneBookForm";
+// import Contacts from "../Contacts";
+
+// const PhoneBook = () => {
+//   const сontacts = useSelector((state) => state.contacts.items);
+//   const dispatch = useDispatch();
+//   const LOCALSTORAGE_KEY = "PhoneBook_contacts";
+
+//   useEffect(() => {
+//     const phoneBook = localStorage.get(LOCALSTORAGE_KEY);
+//     if (phoneBook) {
+//       dispatch(actions.getItems(phoneBook));
+//     }
+//   }, [dispatch]);
+
+//   useEffect(() => {
+//     localStorage.save(LOCALSTORAGE_KEY, сontacts);
+//   }, [сontacts]);
+
+//   return (
+//     <>
+//       <PhoneBookForm />
+//       {Boolean(сontacts.length) && <Contacts />}
+//     </>
+//   );
+// };
+
+// export default PhoneBook;
 
 ////////////////////////////////////////////////////////
 // import { nanoid } from "nanoid";
